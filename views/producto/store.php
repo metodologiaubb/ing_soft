@@ -1,4 +1,5 @@
 <?php
+use yii\helpers\Url;
 /**
  * Created by PhpStorm.
  * User: jerson
@@ -8,33 +9,24 @@
 ?>
 
 
-<div class="col-lg-12">
-    <h4>Herramientas Disponibles</h4>
-    <table class="table table-condensed">
-        <thead>
-        <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-        </tr>
-        <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>mary@example.com</td>
-        </tr>
-        <tr>
-            <td>July</td>
-            <td>Dooley</td>
-            <td>july@example.com</td>
-        </tr>
-        </tbody>
-    </table>
+<div class="row">
+    <h3 style="text-align: center"><strong>Herramientas Disponibles</strong></h3>
+
+    <?php
+    foreach ($models as $row){
+      $img=Yii::$app->imagemanager->getImagePath($row->IMAGEN, 700, 650,'outbound');
+        $url = Url::to(['herramientas', 'id' => $row->ID_CATEGORIA]);
+        echo '<div class="col-sm-6 col-md-4 col-lg-2 ">
+    <div  class="thumbnail custom grow">
+      <a href="'.$url.'"><img src="'.$img.'" alt="'.$row->NOMBRE.'"  ></a>
+      <div class="caption">
+        <h4 style="text-align: center">'.$row->NOMBRE.'</h4>
+        
+      </div>
+    </div>
+  </div>';
+    }
+    ?>
+
 
 </div>

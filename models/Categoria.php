@@ -12,6 +12,7 @@ use Yii;
  * @property string $DESCRIPCION
  * @property int $STOCK
  * @property string $ABREVIATURA
+ * @property int $IMAGEN
  *
  * @property Producto[] $productos
  */
@@ -31,8 +32,8 @@ class Categoria extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['NOMBRE', 'DESCRIPCION', 'STOCK', 'ABREVIATURA'], 'required'],
-            [['STOCK'], 'integer'],
+            [['NOMBRE', 'DESCRIPCION', 'STOCK', 'ABREVIATURA', 'IMAGEN'], 'required'],
+            [['STOCK', 'IMAGEN'], 'integer'],
             [['NOMBRE', 'DESCRIPCION'], 'string', 'max' => 250],
             [['ABREVIATURA'], 'string', 'max' => 50],
         ];
@@ -49,6 +50,7 @@ class Categoria extends \yii\db\ActiveRecord
             'DESCRIPCION' => 'Descripcion',
             'STOCK' => 'Stock',
             'ABREVIATURA' => 'Abreviatura',
+            'IMAGEN' => 'Imagen',
         ];
     }
 

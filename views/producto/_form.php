@@ -32,13 +32,13 @@ foreach ($marcas as $row){
         'editorOptions' => [
             'language' => 'es',
         ],
-    ])->textInput(['maxlength' => true]) ?>
+    ]) ?>
 
     <?= $form->field($model, 'ESTADO')->widget(\edofre\ckeditor\CKEditor::className(), [
         'editorOptions' => [
             'language' => 'es',
         ],
-    ])->textInput(['maxlength' => true]) ?>
+    ]) ?>
 
     <?= $form->field($model, 'ID_MARCA')->dropDownList($marc)->label('Categoria')->label('Marca') ?>
 

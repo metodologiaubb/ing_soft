@@ -20,7 +20,8 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "noam148/yii2-image-manager": "*",
         "edofre/yii2-ckeditor": "@dev",
-        "kartik-v/yii2-widget-sidenav": "*"
+        "kartik-v/yii2-widget-sidenav": "*",
+        "schmunk42/yii2-giiant": "@stable"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

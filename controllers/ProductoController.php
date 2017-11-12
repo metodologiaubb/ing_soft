@@ -59,7 +59,19 @@ class ProductoController extends Controller
     }
 
     public function actionStore(){
-        return $this->render('store');
+        $table=new Categoria();
+        $models=$table->find()->all();
+        return $this->render('store',[
+            'models' =>$models,
+        ]);
+    }
+    public function actionHerramientas($id){
+        $table=new Producto();
+        $models=$table->find()->where(['ID_CATEGORIA'=>$id])->all();
+        return $this->render('herramientas',[
+            'models'=>$models,
+        ]);
+
     }
 
     /**
@@ -75,6 +87,7 @@ class ProductoController extends Controller
         $marca=new Marca();
         $marcas=$marca->find()->all();
         //$model->id_adm=Yii::$app->user->identity-> id;
+        $model->ID_USUARIO=1;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ID_PRODUCTO]);
         }

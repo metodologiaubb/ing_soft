@@ -23,6 +23,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'ABREVIATURA')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'IMAGEN')->widget(\noam148\imagemanager\components\ImageManagerInputWidget::className(), [
+        'aspectRatio' => (16/9), //set the aspect ratio
+        'showPreview' => true, //false to hide the preview
+        'showDeletePickedImageConfirm' => false, //on true show warning before detach image
+    ])->label('Imagen')?>
+
     <div class="form-group">
         <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
     </div>

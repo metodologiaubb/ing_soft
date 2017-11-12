@@ -9,8 +9,14 @@ use Yii;
  *
  * @property int $ID_USUARIO
  * @property string $NOMBRE
+ * @property string $EMAIL
  * @property string $CARGO
  * @property string $TELEFONO
+ * @property string $PASSWORD
+ * @property string $AUTHKEY
+ * @property string $ACCESSTOKEN
+ * @property int $ACTIVATE
+ * @property int $ROLL
  *
  * @property Marca[] $marcas
  * @property Producto[] $productos
@@ -32,8 +38,10 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['NOMBRE', 'CARGO', 'TELEFONO'], 'required'],
-            [['NOMBRE', 'CARGO', 'TELEFONO'], 'string', 'max' => 250],
+            [['NOMBRE', 'EMAIL', 'CARGO', 'TELEFONO', 'PASSWORD', 'AUTHKEY', 'ACCESSTOKEN', 'ROLL'], 'required'],
+            [['ACTIVATE', 'ROLL'], 'integer'],
+            [['NOMBRE', 'CARGO', 'TELEFONO', 'PASSWORD', 'AUTHKEY', 'ACCESSTOKEN'], 'string', 'max' => 250],
+            [['EMAIL'], 'string', 'max' => 80],
         ];
     }
 
@@ -45,8 +53,14 @@ class Usuario extends \yii\db\ActiveRecord
         return [
             'ID_USUARIO' => 'Id  Usuario',
             'NOMBRE' => 'Nombre',
+            'EMAIL' => 'Email',
             'CARGO' => 'Cargo',
             'TELEFONO' => 'Telefono',
+            'PASSWORD' => 'Password',
+            'AUTHKEY' => 'Authkey',
+            'ACCESSTOKEN' => 'Accesstoken',
+            'ACTIVATE' => 'Activate',
+            'ROLL' => 'Roll',
         ];
     }
 
